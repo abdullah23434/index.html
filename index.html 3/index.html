@@ -3,186 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عالم شبكات الحاسب</title>
+    <title>موسوعة شبكات الحاسب | إعداد خالد العياف</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-bg: #f4f7f6;
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+            --gradient: linear-gradient(to left, #1a2a6c, #b21f1f, #fdbb2d);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
+            background-color: #f0f2f5;
+            color: var(--text-dark);
         }
 
-        /* الهيدر العلوي */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient);
             color: white;
-            padding: 20px;
+            padding: 60px 20px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
 
-        .student-info {
-            background-color: rgba(255, 255, 255, 0.2);
+        .student-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 15px 30px;
+            border-radius: 15px;
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-            margin-top: 10px;
-            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
 
         .container {
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 1000px;
+            margin: -50px auto 50px;
             padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
         }
 
         h2 {
-            color: var(--primary-color);
-            border-right: 5px solid var(--secondary-color);
+            color: var(--primary);
+            border-right: 6px solid var(--secondary);
             padding-right: 15px;
+            font-size: 1.8em;
         }
 
-        /* قسم الاختبار */
-        .quiz-section {
-            margin-top: 40px;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
             padding: 20px;
-            border: 2px dashed var(--secondary-color);
+            border-radius: 12px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .quiz-container {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .question-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
             border-radius: 10px;
-        }
-
-        .question {
-            margin-bottom: 20px;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .question p {
-            font-weight: bold;
-            font-size: 1.1em;
+            margin-bottom: 15px;
         }
 
         .options label {
             display: block;
-            margin: 8px 0;
+            padding: 10px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         button {
-            background-color: var(--secondary-color);
-            color: white;
+            background: var(--accent);
+            color: var(--primary);
             border: none;
-            padding: 12px 25px;
+            padding: 15px 30px;
+            font-weight: bold;
             font-size: 1.1em;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             width: 100%;
-            transition: 0.3s;
         }
 
-        button:hover {
-            background-color: var(--primary-color);
-        }
-
-        #result {
-            margin-top: 20px;
+        footer {
             text-align: center;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: var(--accent-color);
+            padding: 30px;
+            background: var(--primary);
+            color: white;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>بوابة علوم الشبكات</h1>
-    <div class="student-info">
-        إعداد الطالب: خالد العياف | شعبة: 12
+    <div class="student-card">
+        <span style="font-size: 1.2em;">👨‍💻 إعداد الطالب: <b>خالد العياف</b></span>
+        <br>
+        <span>🏫 الشعبة: <b>12</b></span>
     </div>
+    <h1>المرجع الشامل لشبكات الحاسب</h1>
 </header>
 
 <div class="container">
-    <h2>مقدمة في الشبكات</h2>
-    <p>شبكة الحاسب هي مجموعة من الأجهزة المتصلة ببعضها البعض لمشاركة الموارد والبيانات. تساهم الشبكات في تسهيل التواصل وسرعة نقل المعلومات حول العالم.</p>
-
-    <hr>
-
-    <div class="quiz-section">
-        <h3>اختبر معلوماتك (صح أم خطأ)</h3>
+    <div class="card">
+        <h2>أهمية الشبكات</h2>
+        <p>تعتبر الشبكات العمود الفقري للعصر الرقمي، حيث تسمح بمشاركة الموارد مثل الطابعات والملفات، وتوفر وسيلة اتصال سريعة وآمنة بين المستخدمين عبر مسافات شاسعة.</p>
         
-        <form id="quizForm">
-            <div class="question">
-                <p>1. تعتبر شبكة الـ WAN أصغر من شبكة الـ LAN من حيث المساحة الجغرافية.</p>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>طوبولوجيا الشبكة</h3>
+                <p>تحدد طريقة ترتيب الأجهزة كبلات التوصيل، ومن أشهرها هيكلية Star و Mesh.</p>
+            </div>
+            <div class="info-box">
+                <h3>بروتوكولات الاتصال</h3>
+                <p>هي القواعد التي تنظم عملية نقل البيانات مثل HTTP للتصفح و SMTP للبريد.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>اختبار سريع</h2>
+        <form id="proQuiz">
+            <div class="question-box">
+                <p>1. أي نوع من الشبكات يغطي مساحة محدودة مثل مبنى واحد؟</p>
                 <div class="options">
-                    <label><input type="radio" name="q1" value="false"> صح</label>
-                    <label><input type="radio" name="q1" value="true"> خطأ</label>
+                    <label><input type="radio" name="q1" value="LAN"> LAN</label>
+                    <label><input type="radio" name="q1" value="WAN"> WAN</label>
                 </div>
             </div>
 
-            <div class="question">
-                <p>2. جهاز الـ Router (الموجه) يستخدم لربط شبكات مختلفة ببعضها البعض.</p>
+            <div class="question-box">
+                <p>2. هل يستخدم الموجه (Router) لربط شبكات مختلفة؟</p>
                 <div class="options">
-                    <label><input type="radio" name="q2" value="true"> صح</label>
-                    <label><input type="radio" name="q2" value="false"> خطأ</label>
+                    <label><input type="radio" name="q2" value="true"> نعم</label>
+                    <label><input type="radio" name="q2" value="false"> لا</label>
                 </div>
             </div>
 
-            <div class="question">
-                <p>3. بروتوكول IP هو المسؤول عن إرسال المواقع الإلكترونية للمتصفح.</p>
-                <div class="options">
-                    <label><input type="radio" name="q3" value="false"> صح</label>
-                    <label><input type="radio" name="q3" value="true"> خطأ</label>
-                </div>
-            </div>
-
-            <button type="button" onclick="checkQuiz()">تحقق من الإجابات</button>
+            <button type="button" onclick="calculateResult()">تحقق من النتيجة</button>
         </form>
-
-        <div id="result"></div>
+        <div id="finalScore" style="margin-top: 20px; font-size: 1.5em; text-align: center;"></div>
     </div>
 </div>
 
-<script>
-    function checkQuiz() {
-        let score = 0;
-        let totalQuestions = 3;
-        
-        // التحقق من الإجابات
-        let q1 = document.querySelector('input[name="q1"]:checked');
-        let q2 = document.querySelector('input[name="q2"]:checked');
-        let q3 = document.querySelector('input[name="q3"]:checked');
+<footer>
+    <p>تم التطوير بواسطة خالد العياف - شعبة 12</p>
+</footer>
 
-        if(!q1 || !q2 || !q3) {
-            alert("يرجى الإجابة على جميع الأسئلة!");
+<script>
+    function calculateResult() {
+        let score = 0;
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+
+        if(!q1 || !q2) {
+            alert("يرجى الإجابة على جميع الأسئلة");
             return;
         }
 
-        if(q1.value === "true") score++;
+        if(q1.value === "LAN") score++;
         if(q2.value === "true") score++;
-        if(q3.value === "true") score++;
 
-        let resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = "درجتك هي: " + score + " من " + totalQuestions;
-        
-        if(score === totalQuestions) {
-            resultDiv.style.color = "green";
-            resultDiv.innerHTML += " - أحسنت يا خالد، إجاباتك مثالية!";
+        const resDiv = document.getElementById('finalScore');
+        if(score === 2) {
+            resDiv.innerHTML = "أحسنت";
+            resDiv.style.color = "#fdbb2d";
         } else {
-            resultDiv.style.color = "red";
-            resultDiv.innerHTML += " - حاول مرة أخرى لتحسين نتيجتك.";
+            resDiv.innerHTML = "درجتك " + score + " من 2. حاول مرة أخرى.";
+            resDiv.style.color = "#fff";
         }
     }
 </script>
