@@ -3,197 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موسوعة شبكات الحاسب | إعداد خالد العياف</title>
+    <title>بوابة هندسة الشبكات | خالد العياف</title>
     <style>
         :root {
-            --primary: #1a2a6c;
-            --secondary: #b21f1f;
-            --accent: #fdbb2d;
-            --text-dark: #2c3e50;
-            --white: #ffffff;
-            --gradient: linear-gradient(to left, #1a2a6c, #b21f1f, #fdbb2d);
+            --primary-dark: #0f172a;
+            --accent-blue: #38bdf8;
+            --accent-purple: #818cf8;
+            --text-light: #f8fafc;
+            --card-bg: #ffffff;
+            --gradient-main: linear-gradient(135deg, #1e293b, #334155);
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            color: var(--text-dark);
+            background-color: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.8;
         }
 
+        /* رأس الصفحة */
         header {
-            background: var(--gradient);
-            color: white;
-            padding: 60px 20px;
+            background: var(--gradient-main);
+            color: var(--text-light);
+            padding: 80px 20px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            border-bottom: 8px solid var(--accent-blue);
         }
 
-        .student-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 15px 30px;
-            border-radius: 15px;
+        .student-badge {
+            background: rgba(56, 189, 248, 0.2);
+            border: 1px solid var(--accent-blue);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1em;
             display: inline-block;
             margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
 
         .container {
             max-width: 1000px;
-            margin: -50px auto 50px;
-            padding: 20px;
+            margin: -40px auto 40px;
+            padding: 0 20px;
         }
 
-        .card {
-            background: var(--white);
-            padding: 30px;
+        /* بطاقات المعلومات */
+        .info-card {
+            background: var(--card-bg);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             margin-bottom: 30px;
         }
 
         h2 {
-            color: var(--primary);
-            border-right: 6px solid var(--secondary);
-            padding-right: 15px;
-            font-size: 1.8em;
+            color: var(--accent-purple);
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .info-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 20px;
         }
 
-        .info-box {
-            background: #f8f9fa;
+        .feature-box {
+            background: #f8fafc;
             padding: 20px;
-            border-radius: 12px;
-            border-top: 4px solid var(--secondary);
+            border-radius: 15px;
+            border-right: 5px solid var(--accent-blue);
         }
 
-        .quiz-container {
-            background: var(--primary);
-            color: white;
+        /* قسم الاختبار الملون */
+        .quiz-wrapper {
+            background: var(--primary-dark);
+            color: var(--text-light);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .question-box {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+        .question-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .options label {
+        .options-group label {
             display: block;
-            padding: 10px;
+            margin: 12px 0;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
             cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .options-group label:hover {
+            background: var(--accent-purple);
         }
 
         button {
-            background: var(--accent);
-            color: var(--primary);
+            background: var(--accent-blue);
+            color: var(--primary-dark);
             border: none;
-            padding: 15px 30px;
+            padding: 18px;
+            font-size: 1.2em;
             font-weight: bold;
-            font-size: 1.1em;
-            border-radius: 10px;
-            cursor: pointer;
+            border-radius: 12px;
             width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--accent-purple);
+            color: white;
+            transform: scale(1.02);
+        }
+
+        #resultArea {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            background: var(--primary);
-            color: white;
+            padding: 40px;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="student-card">
-        <span style="font-size: 1.2em;">👨‍💻 إعداد الطالب: <b>خالد العياف</b></span>
-        <br>
-        <span>🏫 الشعبة: <b>12</b></span>
-    </div>
-    <h1>المرجع الشامل لشبكات الحاسب</h1>
+    <div class="student-badge">إعداد الطالب: خالد العياف | شعبة: 12</div>
+    <h1>رحلة في أعماق الشبكات</h1>
+    <p>دليلك التقني لفهم بنية الإنترنت والربط الرقمي</p>
 </header>
 
 <div class="container">
-    <div class="card">
-        <h2>أهمية الشبكات</h2>
-        <p>تعتبر الشبكات العمود الفقري للعصر الرقمي، حيث تسمح بمشاركة الموارد مثل الطابعات والملفات، وتوفر وسيلة اتصال سريعة وآمنة بين المستخدمين عبر مسافات شاسعة.</p>
-        
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>طوبولوجيا الشبكة</h3>
-                <p>تحدد طريقة ترتيب الأجهزة كبلات التوصيل، ومن أشهرها هيكلية Star و Mesh.</p>
+    
+    <div class="info-card">
+        <h2>🔍 مفاهيم شبكية متقدمة</h2>
+        <div class="grid">
+            <div class="feature-box">
+                <h3>🌐 بروتوكول TCP/IP</h3>
+                <p>هو "لغة الإنترنت" الأساسية. الـ <b>TCP</b> يضمن وصول البيانات بدون أخطاء، بينما الـ <b>IP</b> مسؤول عن توجيه البيانات للعنوان الصحيح.</p>
             </div>
-            <div class="info-box">
-                <h3>بروتوكولات الاتصال</h3>
-                <p>هي القواعد التي تنظم عملية نقل البيانات مثل HTTP للتصفح و SMTP للبريد.</p>
+            <div class="feature-box">
+                <h3>🛡️ جدار الحماية (Firewall)</h3>
+                <p>نظام أمني يراقب حركة مرور البيانات الواردة والصادرة ويقوم بمنع البيانات المشبوهة لحماية الشبكة من الاختراق.</p>
+            </div>
+            <div class="feature-box">
+                <h3>☁️ الحوسبة السحابية</h3>
+                <p>هي شبكة ضخمة من الخوادم (Servers) تتيح تخزين البيانات ومعالجتها عبر الإنترنت بدلاً من جهازك الشخصي.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📡 الألياف البصرية</h3>
+                <p>تقنية تستخدم نبضات الضوء لنقل البيانات بسرعة هائلة تفوق الأسلاك النحاسية التقليدية بآلاف المرات.</p>
             </div>
         </div>
     </div>
 
-    <div class="quiz-container">
-        <h2>اختبار سريع</h2>
-        <form id="proQuiz">
-            <div class="question-box">
-                <p>1. أي نوع من الشبكات يغطي مساحة محدودة مثل مبنى واحد؟</p>
-                <div class="options">
-                    <label><input type="radio" name="q1" value="LAN"> LAN</label>
-                    <label><input type="radio" name="q1" value="WAN"> WAN</label>
+    <div class="quiz-wrapper">
+        <h2 style="color: var(--accent-blue);">📝 اختبار التحدي</h2>
+        <form id="networksQuiz">
+            
+            <div class="question-item">
+                <p>1. ما هو الجهاز الذي يربط شبكتين مختلفتين تماماً (مثل منزلك والإنترنت)؟</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q1" value="Router"> الموجه (Router)</label>
+                    <label><input type="radio" name="q1" value="Switch"> المبدل (Switch)</label>
                 </div>
             </div>
 
-            <div class="question-box">
-                <p>2. هل يستخدم الموجه (Router) لربط شبكات مختلفة؟</p>
-                <div class="options">
-                    <label><input type="radio" name="q2" value="true"> نعم</label>
-                    <label><input type="radio" name="q2" value="false"> لا</label>
+            <div class="question-item">
+                <p>2. "الألياف البصرية" تنقل البيانات باستخدام الكهرباء وليس الضوء.</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q2" value="true"> صح</label>
+                    <label><input type="radio" name="q2" value="false"> خطأ</label>
                 </div>
             </div>
 
-            <button type="button" onclick="calculateResult()">تحقق من النتيجة</button>
+            <div class="question-item">
+                <p>3. أي بروتوكول يستخدم لتصفح المواقع الإلكترونية بشكل آمن؟</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q3" value="HTTPS"> HTTPS</label>
+                    <label><input type="radio" name="q3" value="SMTP"> SMTP</label>
+                </div>
+            </div>
+
+            <div class="question-item">
+                <p>4. شبكة الـ PAN تستخدم غالباً لربط الأجهزة الشخصية مثل الساعة الذكية بالجوال.</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q4" value="true"> صح</label>
+                    <label><input type="radio" name="q4" value="false"> خطأ</label>
+                </div>
+            </div>
+
+            <button type="button" onclick="evaluateQuiz()">تصحيح الاختبار</button>
         </form>
-        <div id="finalScore" style="margin-top: 20px; font-size: 1.5em; text-align: center;"></div>
+        <div id="resultArea"></div>
     </div>
 </div>
 
 <footer>
-    <p>تم التطوير بواسطة خالد العياف - شعبة 12</p>
+    <p>تم تصميم هذا الموقع لأغراض تعليمية - مادة الحاسب الآلي</p>
+    <p>خالد العياف - 2026</p>
 </footer>
 
 <script>
-    function calculateResult() {
-        let score = 0;
-        const q1 = document.querySelector('input[name="q1"]:checked');
-        const q2 = document.querySelector('input[name="q2"]:checked');
+    function evaluateQuiz() {
+        let finalScore = 0;
+        const answers = {
+            q1: document.querySelector('input[name="q1"]:checked'),
+            q2: document.querySelector('input[name="q2"]:checked'),
+            q3: document.querySelector('input[name="q3"]:checked'),
+            q4: document.querySelector('input[name="q4"]:checked')
+        };
 
-        if(!q1 || !q2) {
-            alert("يرجى الإجابة على جميع الأسئلة");
+        if(!answers.q1 || !answers.q2 || !answers.q3 || !answers.q4) {
+            alert("يرجى الإجابة على كل الأسئلة أولاً");
             return;
         }
 
-        if(q1.value === "LAN") score++;
-        if(q2.value === "true") score++;
+        if(answers.q1.value === "Router") finalScore++;
+        if(answers.q2.value === "false") finalScore++;
+        if(answers.q3.value === "HTTPS") finalScore++;
+        if(answers.q4.value === "true") finalScore++;
 
-        const resDiv = document.getElementById('finalScore');
-        if(score === 2) {
-            resDiv.innerHTML = "أحسنت";
-            resDiv.style.color = "#fdbb2d";
+        const display = document.getElementById('resultArea');
+        if(finalScore === 4) {
+            display.innerHTML = "أحسنت";
+            display.style.color = "#38bdf8";
         } else {
-            resDiv.innerHTML = "درجتك " + score + " من 2. حاول مرة أخرى.";
-            resDiv.style.color = "#fff";
+            display.innerHTML = "نتيجتك هي " + finalScore + " من 4. حاول مرة أخرى!";
+            display.style.color = "#ef4444";
         }
     }
 </script>
